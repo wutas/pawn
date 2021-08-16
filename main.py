@@ -9,7 +9,7 @@ import pandas as pd
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
-DATA_PATH = r"images"
+DATA_PATH = "/home/skiba/pawn/"
 
 NUM_WORKERS = 2
 
@@ -40,22 +40,22 @@ if uploaded_file is not None:
     image = transformer(image).unsqueeze(0)
 
     st.write("")
-    gif_runner = st.image('wait4.gif')
+    gif_runner = st.image(DATA_PATH + 'wait4.gif')
 
-    model_bin = torch.load('model_resnet_152_finetune.ckpt',
+    model_bin = torch.load(DATA_PATH + 'model_resnet_152_finetune.ckpt',
                            map_location=torch.device(device))
-    model_bin_v2 = torch.load('jew_or_not.ckpt',
+    model_bin_v2 = torch.load(DATA_PATH + 'jew_or_not.ckpt',
                               map_location=torch.device(device))
 
-    model_mult = torch.load('5_class_77_v2.ckpt',
+    model_mult = torch.load(DATA_PATH + '5_class_77_v2.ckpt',
                             map_location=torch.device(device))
-    model_mult_v2 = torch.load('5_class_bigdata.ckpt',
+    model_mult_v2 = torch.load(DATA_PATH + '5_class_bigdata.ckpt',
                                map_location=torch.device(device))
 
-    model_stone = torch.load('stone_no_stone.ckpt',
+    model_stone = torch.load(DATA_PATH + 'stone_no_stone.ckpt',
                              map_location=torch.device(device))
 
-    model_silver_gold = torch.load('silver_gold.ckpt',
+    model_silver_gold = torch.load(DATA_PATH + 'silver_gold.ckpt',
                                    map_location=torch.device(device))
     with torch.no_grad():
         X = image.to(device, torch.float)
