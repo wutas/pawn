@@ -1,0 +1,11 @@
+version: "3.3"
+
+services:
+  web:
+    restart: always
+    image: wutas/pawnshop2
+    command: streamlit run main.py
+    volumes:
+      - .:/code
+    ports:
+      - "8001:8501"
