@@ -10,4 +10,4 @@ COPY . /code
 
 RUN pip install -r requirements.txt
 
-#CMD ["streamlit", "run", "main.py"]
+CMD ["streamlit", "run", "main.py"]
